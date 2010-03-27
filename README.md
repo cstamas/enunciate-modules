@@ -1,7 +1,7 @@
 Description
 -----------
 
-[Enunciate](http://enunciate.codehaus.org) modules for [Apache Wink](http://incubator.apache.org/wink).
+[Enunciate](http://enunciate.codehaus.org) modules.
 
 Building
 --------
@@ -13,6 +13,6 @@ Building
 
 Check-out and build:
 
-    git clone git@github.com:jdillon/enunciate-wink.git
-    cd enunciate-wink
+    git clone git@github.com:jdillon/enunciate-modules.git
+    cd enunciate-modules
     mvn install

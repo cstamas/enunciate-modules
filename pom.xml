@@ -14,9 +14,9 @@
         <version>5</version>
     </parent>
 
-    <groupId>org.sonatype.spice.enunciate.wink</groupId>
-    <artifactId>enunciate-wink</artifactId>
-    <name>Enunciate Wink</name>
+    <groupId>org.sonatype.spice.enunciate</groupId>
+    <artifactId>enunciate-modules</artifactId>
+    <name>Enunciate Modules</name>
     <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -34,9 +34,9 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:git://github.com/jdillon/enunciate-wink.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/jdillon/enunciate-wink</developerConnection>
-        <url>https://github.com/jdillon/enunciate-wink</url>
+        <connection>scm:git:git://github.com/jdillon/enunciate-modules.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/jdillon/enunciate-modules</developerConnection>
+        <url>https://github.com/jdillon/enunciate-modules</url>
     </scm>
 
     <properties>

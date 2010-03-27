@@ -24,13 +24,14 @@ import org.codehaus.enunciate.apt.EnunciateFreemarkerModel;
 import org.codehaus.enunciate.modules.FreemarkerDeploymentModule;
 import org.codehaus.enunciate.modules.SpecProviderModule;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
 import java.util.Set;
 
 /**
- * ???
+ * Enunciate module to generate muck for an <a href="http://incubator.apache.org/wink">Apache Wink</a> application.
  *
  * @author <a href="mailto:jason@planet57.com">Jason Dillon</a>
  * @since 0.1
@@ -39,11 +40,24 @@ public class DeploymentModuleImpl
     extends FreemarkerDeploymentModule
     implements SpecProviderModule, EnunciateClasspathListener
 {
-    private boolean jacksonAvailable = false;
+//    private boolean jacksonAvailable = false;
 
     @Override
     public String getName() {
         return "wink-app";
+    }
+
+    @Override
+    public boolean isDisabled() {
+        if (super.isDisabled()) {
+            return true;
+        }
+        else if (getModelInternal() != null && getModelInternal().getRootResources().isEmpty()) {
+            debug("Module is disabled because there are no root resources");
+            return true;
+        }
+
+        return false;
     }
 
     public boolean isJaxwsProvider() {
@@ -64,11 +78,11 @@ public class DeploymentModuleImpl
     }
 
     public void onClassesFound(final Set<String> classes) {
-        jacksonAvailable |= classes.contains("org.codehaus.jackson.jaxrs.JacksonJsonProvider");
+//        jacksonAvailable |= classes.contains("org.codehaus.jackson.jaxrs.JacksonJsonProvider");
     }
 
     private boolean isUpToDate() {
-        return enunciate.isUpToDateWithSources(getGenerateDir());
+        return getEnunciate().isUpToDateWithSources(getGenerateDir());
     }
 
     @Override
@@ -76,15 +90,15 @@ public class DeploymentModuleImpl
         super.initModel(model);
 
         if (!isDisabled()) {
-            Map<String, String> contentTypes2Ids = model.getContentTypesToIds();
-
-            if (jacksonAvailable) {
-                contentTypes2Ids.put("application/json", "json"); //if we can load jackson, we've got json.
-            }
-            else {
-                debug("Couldn't find Jackson on the classpath, so it's assumed the REST endpoints aren't available in JSON format.");
-            }
-
+//            Map<String, String> contentTypes2Ids = model.getContentTypesToIds();
+//
+//            if (jacksonAvailable) {
+//                contentTypes2Ids.put("application/json", "json"); //if we can load jackson, we've got json.
+//            }
+//            else {
+//                debug("Couldn't find Jackson on the classpath, so it's assumed the REST endpoints aren't available in JSON format.");
+//            }
+//
 //            for (RootResource resource : model.getRootResources()) {
 //                for (ResourceMethod resourceMethod : resource.getResourceMethods(true)) {
 //                    Map<String, Set<String>> subcontextsByContentType = new HashMap<String, Set<String>>();
@@ -159,16 +173,11 @@ public class DeploymentModuleImpl
     protected void doBuild() throws EnunciateException, IOException {
         super.doBuild();
 
-//        File webappDir = getBuildDir();
-//        webappDir.mkdirs();
-//        File webinf = new File(webappDir, "WEB-INF");
-//        File webinfClasses = new File(webinf, "classes");
-//        getEnunciate().copyFile(new File(getGenerateDir(), "jaxrs-providers.list"), new File(webinfClasses, "jaxrs-providers.list"));
-//        getEnunciate().copyFile(new File(getGenerateDir(), "jaxrs-root-resources.list"), new File(webinfClasses, "jaxrs-root-resources.list"));
-//        getEnunciate().copyFile(new File(getGenerateDir(), "jaxrs-jaxb-types.list"), new File(webinfClasses, "jaxrs-jaxb-types.list"));
-//        getEnunciate().copyFile(new File(getGenerateDir(), "media-type-mappings.properties"), new File(webinfClasses, "media-type-mappings.properties"));
-//        getEnunciate().copyFile(new File(getGenerateDir(), "ns2prefix.properties"), new File(webinfClasses, "ns2prefix.properties"));
-//
+        File webappDir = getBuildDir();
+        webappDir.mkdirs();
+        File webinf = new File(webappDir, "WEB-INF");
+        getEnunciate().copyFile(new File(getGenerateDir(), "application"), new File(webinf, "application"));
+
 //        BaseWebAppFragment webappFragment = new BaseWebAppFragment(getName());
 //        webappFragment.setBaseDir(webappDir);
 //        WebAppComponent servletComponent = new WebAppComponent();
