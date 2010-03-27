@@ -22,6 +22,11 @@
             <groupId>org.codehaus.enunciate</groupId>
             <artifactId>enunciate-core</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.wink</groupId>
+            <artifactId>wink-server</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

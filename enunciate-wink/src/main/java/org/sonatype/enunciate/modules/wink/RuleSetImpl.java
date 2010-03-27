@@ -20,7 +20,7 @@ import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.RuleSetBase;
 
 /**
- * ???
+ * Wink {@link org.apache.commons.digester.RuleSet}.
  *
  * @author <a href="mailto:jason@planet57.com">Jason Dillon</a>
  * @since 0.1
@@ -29,9 +29,9 @@ public class RuleSetImpl
     extends RuleSetBase
 {
     public void addRuleInstances(Digester digester) {
-        digester.addSetProperties("enunciate/modules/wink-app");
-        digester.addCallMethod("enunciate/modules/wink-app/init-param", "addServletInitParam", 2);
-        digester.addCallParam("enunciate/modules/wink-app/init-param", 0, "name");
-        digester.addCallParam("enunciate/modules/wink-app/init-param", 1, "value");
+        digester.addSetProperties("enunciate/modules/wink");
+        digester.addCallMethod("enunciate/modules/wink/init-param", "addServletInitParam", 2);
+        digester.addCallParam("enunciate/modules/wink/init-param", 0, "name");
+        digester.addCallParam("enunciate/modules/wink/init-param", 1, "value");
     }
 }
