@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.sonatype.enunciate.modules.wink.app;
+package org.sonatype.enunciate.modules.wink;
 
 import freemarker.template.TemplateException;
 import org.apache.commons.digester.RuleSet;
@@ -27,7 +27,6 @@ import org.codehaus.enunciate.modules.SpecProviderModule;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -72,10 +71,10 @@ public class DeploymentModuleImpl
         return getClass().getResource("application.fmt");
     }
 
-    @Override
-    public RuleSet getConfigurationRules() {
-        return new RuleSetImpl();
-    }
+//    @Override
+//    public RuleSet getConfigurationRules() {
+//        return new RuleSetImpl();
+//    }
 
     public void onClassesFound(final Set<String> classes) {
 //        jacksonAvailable |= classes.contains("org.codehaus.jackson.jaxrs.JacksonJsonProvider");
@@ -138,7 +137,7 @@ public class DeploymentModuleImpl
 
     @Override
     public void doFreemarkerGenerate() throws EnunciateException, IOException, TemplateException {
-        if (!isUpToDate()) {
+        if (!isUpToDate()) {;
             EnunciateFreemarkerModel model = getModel();
             processTemplate(getApplicationTemplateURL(), model);
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.sonatype.enunciate.modules.wink.app;
+package org.sonatype.enunciate.modules.wink;
 
 import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.RuleSetBase;
