@@ -85,7 +85,7 @@
     </dependencyManagement>
 
     <modules>
-        <module>enunciate-wink-app</module>
+        <module>enunciate-wink</module>
         <module>enunciate-wink-client</module>
     </modules>
 

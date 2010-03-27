@@ -14,8 +14,8 @@
         <version>0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>enunciate-wink-app</artifactId>
-    <name>Enunciate Modules :: Wink App</name>
+    <artifactId>enunciate-wink</artifactId>
+    <name>Enunciate Modules :: Wink</name>
 
     <dependencies>
         <dependency>
