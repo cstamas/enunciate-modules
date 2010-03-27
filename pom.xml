@@ -19,8 +19,8 @@
     <name>Enunciate Wink</name>
     <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-	
-	<organization>
+
+    <organization>
         <name>Sonatype</name>
         <url>http://sonatype.org</url>
     </organization>
@@ -59,30 +59,6 @@
             </dependency>
 
             <dependency>
-                <groupId>org.apache.wink</groupId>
-                <artifactId>wink-common</artifactId>
-                <version>1.0-incubating</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.wink</groupId>
-                <artifactId>wink-client</artifactId>
-                <version>1.0-incubating</version>
-            </dependency>
-            
-            <dependency>
-                <groupId>org.apache.wink</groupId>
-                <artifactId>wink-server</artifactId>
-                <version>1.0-incubating</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-simple</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
                 <groupId>org.codehaus.enunciate</groupId>
                 <artifactId>enunciate-core</artifactId>
                 <version>${enunciateVersion}</version>
@@ -106,14 +82,38 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+            
+            <dependency>
+                <groupId>org.apache.wink</groupId>
+                <artifactId>wink-common</artifactId>
+                <version>1.0-incubating</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.wink</groupId>
+                <artifactId>wink-client</artifactId>
+                <version>1.0-incubating</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.wink</groupId>
+                <artifactId>wink-server</artifactId>
+                <version>1.0-incubating</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-simple</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <modules>
-		<module>enunciate-wink-app</module>
-		<module>enunciate-wink-client</module>
+        <module>enunciate-wink-app</module>
+        <module>enunciate-wink-client</module>
     </modules>
-    
+
     <build>
         <defaultGoal>install</defaultGoal>
 
@@ -211,7 +211,7 @@
                         <target>1.5</target>
                     </configuration>
                 </plugin>
-                
+
                 <plugin>
                     <groupId>org.codehaus.enunciate</groupId>
                     <artifactId>maven-enunciate-plugin</artifactId>

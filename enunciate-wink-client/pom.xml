@@ -9,12 +9,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-		<groupId>org.sonatype.spice.enunciate.wink</groupId>
-	    <artifactId>enunciate-wink</artifactId>
+        <groupId>org.sonatype.spice.enunciate.wink</groupId>
+        <artifactId>enunciate-wink</artifactId>
         <version>0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>enunciate-wink-client</artifactId>
     <name>Enunciate Wink Client</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.codehaus.enunciate</groupId>
+            <artifactId>enunciate-core</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
