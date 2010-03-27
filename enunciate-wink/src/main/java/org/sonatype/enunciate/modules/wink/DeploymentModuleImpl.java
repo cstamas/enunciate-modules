@@ -121,6 +121,9 @@ public class DeploymentModuleImpl
         servletComponent.setClassname(RestServlet.class.getName());
         TreeMap<String, String> initParams = new TreeMap<String, String>();
         initParams.putAll(getServletInitParams());
+        initParams.put("applicationConfigLocation", "/WEB-INF/application");
+//        initParams.put("propertiesLocation", "/WEB-INF/application.properties");
+//        initParams.put("javax.ws.rs.Application", "some.package.ApplicationImpl");
         servletComponent.setInitParams(initParams);
 
         // TODO: Setup wink-admin servlet
