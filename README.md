@@ -1,7 +1,7 @@
 Description
 -----------
 
-Enunciate modules for Apache Wink.
+[Enunciate](http://enunciate.codehaus.org) modules for [Apache Wink](http://incubator.apache.org/wink).
 
 Building
 --------
@@ -9,7 +9,7 @@ Building
 ### Requirements
 
 * [Maven](http://maven.apache.org) 2+
-* [Java](http://java.sun.com/) 5+
+* [Java](http://java.sun.com) 5+
 
 Check-out and build:
 
