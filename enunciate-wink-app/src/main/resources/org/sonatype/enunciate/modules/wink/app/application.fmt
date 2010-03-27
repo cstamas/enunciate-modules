@@ -1,0 +1,9 @@
+[#ftl]
+[@file name="application" charset="utf-8"]
+[#list jaxrsProviders as provider]
+${provider.qualifiedName}
+[/#list]
+[#list rootResources as rootResource]
+${rootResource.qualifiedName}
+[/#list]
+[/@file]

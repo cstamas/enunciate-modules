@@ -14,13 +14,10 @@
  * limitations under the License.
  */
 
-package org.sonatype.enunciate.modules.wink.client;
+package org.sonatype.enunciate.modules.wink.app;
 
-import freemarker.template.TemplateException;
-import org.codehaus.enunciate.EnunciateException;
-import org.codehaus.enunciate.modules.FreemarkerDeploymentModule;
-
-import java.io.IOException;
+import org.apache.commons.digester.Digester;
+import org.apache.commons.digester.RuleSetBase;
 
 /**
  * ???
@@ -28,11 +25,13 @@ import java.io.IOException;
  * @author <a href="mailto:jason@planet57.com">Jason Dillon</a>
  * @since 0.1
  */
-public class DeploymentModuleImpl
-    extends FreemarkerDeploymentModule
+public class RuleSetImpl
+    extends RuleSetBase
 {
-    @Override
-    public void doFreemarkerGenerate() throws EnunciateException, IOException, TemplateException {
-        // TODO:
+    public void addRuleInstances(Digester digester) {
+        digester.addSetProperties("enunciate/modules/wink-app");
+        digester.addCallMethod("enunciate/modules/wink-app/init-param", "addServletInitParam", 2);
+        digester.addCallParam("enunciate/modules/wink-app/init-param", 0, "name");
+        digester.addCallParam("enunciate/modules/wink-app/init-param", 1, "value");
     }
 }
